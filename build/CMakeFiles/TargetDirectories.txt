@@ -1,0 +1,3 @@
+/Users/vinh/Documents/nhapMonLT/build/CMakeFiles/new1.dir
+/Users/vinh/Documents/nhapMonLT/build/CMakeFiles/edit_cache.dir
+/Users/vinh/Documents/nhapMonLT/build/CMakeFiles/rebuild_cache.dir
