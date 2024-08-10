@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/vinh/Documents/nhapMonLT/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/new1.dir/new1.cpp.o -c /Users/vinh/Documents/nhapMonLT/new1.cpp",
+  "file": "/Users/vinh/Documents/nhapMonLT/new1.cpp",
+  "output": "CMakeFiles/new1.dir/new1.cpp.o"
+}
+]
