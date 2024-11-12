@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <math.h>
 
-int main() {
-    int n, ketqua = 0;
-    printf("Hãy nhập số bất kỳ: ");
-    scanf("%d", &n);
-    for (int i = 1; i <= sqrt(n); i++) {
-        if (n % i == 0) {
-            ketqua += i;
-        }
+double tinhSn(int n){
+    double ketQua = 0;
+    for(int i = 1; i<=n; i++){
+        ketQua = sqrt(2+ketQua);
     }
-    printf("Tong cac uoc = %d\n",ketqua);
-    if (ketqua == n)
-    {
-        printf("%d la so hoan thien \n",n);
-    }
-    else{
-        printf("%d khong la so hoan thien \n",n);
-    }
+    return ketQua;
+}
+
+int main(){
+    int n;
+    double canBac = sqrt(2);
+    printf("Nhập một số bất kì: ");
+    scanf("%d",&n);
+
+    double ketQua = tinhSn(n);
+    printf("S(%d) = %.10f\n", n, ketQua);
+    
     return 0;
 }
