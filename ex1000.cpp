@@ -1,50 +1,42 @@
 #include <stdio.h>
-#include <math.h>  
-void NhapMang(float a[100], int n){
-    for (int i = 0; i < n; i++)
-    {
-        printf("Nhập giá trị tại A[%d]: ", i);
-        scanf("%f", &a[i]);
+
+// Khai báo struct PhanSo
+typedef struct{
+    int tu, mau;} Phanso;
+
+void NhapMang(Phanso ps[], int n){
+    for(int i = 0; i<n; i++){
+        printf("Nhap tử %d: ", i+1);
+        scanf("%d", ps[i].tu);
+        do
+        {
+            printf("Nhap mẫu %d: ", i+1);
+            scanf("%d", ps[i].mau);
+            if(ps[i].mau == 0){
+                
+            }
+        } while (ps[i].mau == 0);
+        
     }
 }
 
-void XuatMang(float a[100],int n){
-    printf("Mảng vừa nhập là: ");
-    for (int i = 0; i < n; i++)
-    {
-        printf("%f   ", a[i]);
-    }
-    printf("\n");
-}
 
-int GiaTriXaNhat(float a[100], int n, float x){
-    float KetQua = 0;
-    float Value = 0;
-    for (int i = 0; i < n; i++) {
-        if (abs(a[i] - x) > Value) {
-            Value = abs(a[i] - x);
-            KetQua = a[i];
-        }
-    }
-    return KetQua;  
-}
-
-int main(){
-    float a[100], x;
+int main() {
     int n;
 
-    printf("Hãy nhập số lượng phần tử của mảng: ");
-    scanf("%d",&n);
+    // Nhập số lượng phân số
+    printf("Nhập số lượng phân số: ");
+    scanf("%d", &n);
 
-    NhapMang(a,n);
-    XuatMang(a,n);
+    // Kiểm tra số lượng hợp lệ
+    if (n <= 0 || n > 10) {
+        printf("Số lượng phân số phải lớn hơn 0 và nhỏ hơn hoặc bằng 10.\n");
+        return 1;
+    }
 
-    printf("Hãy nhập x: ");
-    scanf("%f",&x);
-
-    float KetQua = GiaTriXaNhat(a,n,x);
-    printf("Số xa %f nhất là %f", x, KetQua);
+    Phanso ps[10]; // Mảng chứa tối đa 10 phân số
+    NhapMang(ps, n); // Nhập mảng phân số
+    //XuatMangPhanSo(ps, n); // Xuất mảng phân số
 
     return 0;
 }
-
