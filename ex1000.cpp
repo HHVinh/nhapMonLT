@@ -1,57 +1,57 @@
 #include <stdio.h>
 
-// Hàm nhập ma trận
-void Nhap(int m, int n, float a[100][100]) {
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("Nhập giá trị cho hàng %d và cột %d: ", i + 1, j + 1);
+void Nhap(int m, int n, float a[100][100]){
+    for(int i = 0; i <m; i++){
+        for(int j = 0; j<n; j++){
+            printf("Nhập giá trị của hàng %d - cột %d:", i+1, j+1);
             scanf("%f", &a[i][j]);
         }
     }
 }
 
-// Hàm xuất ma trận
-void Xuat(int m, int n, float a[100][100]) {
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%.2f ", a[i][j]);
+void Xuat(int m, int n, float a[100][100]){
+    for(int i = 0; i<m; i++){
+        for(int j = 0; j<n; j++){
+            printf("%.2f ",a[i][j]);
         }
         printf("\n");
     }
 }
 
-// Hàm tính tổng các số âm
-float TongSoAm(int m, int n, float a[100][100]) {
-    float Tong = 0;
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (a[i][j] < 0) {
-                Tong += a[i][j];
+void SapXep(int m, int n, float a[100][100]){
+    int Dem = 0; float b[10000];
+    for(int i = 0; i<m; i++){
+        for(int j = 0; j<n; j++){
+            a[i][j] = b[Dem];
+            Dem += 1;
+        }
+    }
+    for(int i = 0; i< m*n; i++){
+        for(int j = 1; j< m*n; j++){
+            if(b[i]>b[j]){
+                float temp = b[i]; b[i] = b[j]; b[j] = temp;
             }
         }
     }
-    return Tong;
+    printf("Mảng sau khi sắp xếp là: \n");
+    int Dem2 = 0;
+    for(int i = 0; i< m; i++){
+        for(int j = 0; j< n; j++){
+            a[i][j] = b[Dem2];
+            Dem2 +=1;
+        }
+    }
 }
 
-// Hàm chính
-int main() {
-    int m, n;
-    float a[100][100];
+int main(){
+    int m, n; float a[100][100];
+    printf("Nhập số hàng và cột của mảng hai chiều MxN: ");
+    scanf("%d %d",&m,&n);
 
-    // Nhập kích thước ma trận
-    printf("Hãy nhập số hàng và số cột cho ma trận MxN: ");
-    scanf("%d %d", &m, &n);
-
-    // Nhập ma trận
-    Nhap(m, n, a);
-    
-    // Xuất ma trận
+    Nhap(m,n,a);
     printf("Mảng vừa nhập là:\n");
-    Xuat(m, n, a);
+    Xuat(m,n,a);
+    SapXep(m,n,a);
+    Xuat(m,n,a);
 
-    // Tính và in kết quả tổng các số âm
-    float KetQua = TongSoAm(m, n, a);
-    printf("Tổng các số âm trong ma trận là: %.2f\n", KetQua);
-
-    return 0;
 }
