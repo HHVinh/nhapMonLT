@@ -18,15 +18,16 @@ void Xuat(int m, int n, float a[100][100]){
     }
 }
 
-void MaTranABS(int m, int n, float a[100][100]){
+int TinhTongSoDuong(int m, int n, float a[100][100]){
+    float Tong = 0;
     for(int i = 0; i<m; i++){
         for(int j = 0; j<n; j++){
-            if(a[i][j] - (int) a[i][j] >= 0.5){
-                a[i][j] = (int) a[i][j] +1;
-            } 
-            else a[i][j] = (int) a[i][j];
+            if(a[i][j] > 0){
+                Tong += a[i][j];
+            }
         }
     }
+    return Tong;
 }
 
 int main(){
@@ -37,9 +38,7 @@ int main(){
     Nhap(m,n,a);
     printf("Mảng vừa nhập là:\n");
     Xuat(m,n,a);
-    printf("\n Kết quả là: \n");
-    MaTranABS(m,n,a);
-    Xuat(m,n,a);
+    float Tong = TinhTongSoDuong(m,n,a);
+    printf("Tổng các số dương trong mảng là: %.2f", Tong);
 
-    return 0;
 }

@@ -21,10 +21,9 @@ void Xuat(int m, int n, float a[100][100]){
 void MaTranABS(int m, int n, float a[100][100]){
     for(int i = 0; i<m; i++){
         for(int j = 0; j<n; j++){
-            if(a[i][j] - (int) a[i][j] >= 0.5){
-                a[i][j] = (int) a[i][j] +1;
-            } 
-            else a[i][j] = (int) a[i][j];
+            if(a[i][j] < 0){
+                a[i][j] *= -1.0;
+            }
         }
     }
 }

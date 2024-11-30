@@ -18,14 +18,15 @@ void Xuat(int m, int n, float a[100][100]){
     }
 }
 
-void MaTranABS(int m, int n, float a[100][100]){
-    for(int i = 0; i<m; i++){
-        for(int j = 0; j<n; j++){
-            if(a[i][j] - (int) a[i][j] >= 0.5){
-                a[i][j] = (int) a[i][j] +1;
-            } 
-            else a[i][j] = (int) a[i][j];
+void TinhTong1Cot(int m, int n, float a[100][100]){
+    for(int j = 0; j<n; j++){
+        float Tong = 0;
+        for(int i = 0; i<m; i++){
+            if(a[i][j] > 0){
+                Tong += a[i][j];
+            }
         }
+        printf("Tổng cột %d là: %.2f\n",j+1, Tong);
     }
 }
 
@@ -38,8 +39,6 @@ int main(){
     printf("Mảng vừa nhập là:\n");
     Xuat(m,n,a);
     printf("\n Kết quả là: \n");
-    MaTranABS(m,n,a);
-    Xuat(m,n,a);
+    TinhTong1Cot(m,n,a);
 
-    return 0;
 }
