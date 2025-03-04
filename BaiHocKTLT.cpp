@@ -55,11 +55,40 @@ void xuatMang(int *pn, int n){
     // printf("\n %d", phepTru1);
     // printf("\n %d", phepTru2);
 
-    
+void chenPhanTU(int ** pa, int *n, int k, int value){
+    int *pb = (int*) malloc(*n+1 * sizeof(int));
+    for(int i = 0; i < k; i++){
+        pb[i] = (*pa)[i];
+    }
+    pb[k] = value;
+    for(int i = k; i < *n; i++){
+        pb[i + 1] = (*pa)[i];
+    }
+    (*n)++;
+    free(*pa);
+    *pa = pb;
+}    
+
+void xoaPhanTu(int ** pa, int *n, int k){
+
+    int *pb = (int *)malloc((*n-1)* sizeof(int));
+    for(int i = 0; i < k-1; i++){
+        pb[i] = (*pa)[i];
+    }
+    for(int i = k; i < *n; i++){
+        pb[i-1] = (*pa)[i];
+    }
+    (*n)--;
+    free(*pa);
+    *pa = pb;
+}
+
 int main(){
     
     int *pn, n;
+    int k = 2, value = 9;
     nhapMang(&pn, &n);
+    xoaPhanTu(&pn, &n, k);
     xuatMang(pn, n);
     free(pn); // Giải phóng bộ nhớ
 
