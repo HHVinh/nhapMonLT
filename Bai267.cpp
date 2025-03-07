@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-// 	Bài 267: Viết hàm nhập mảng sao cho khi nhập xong thì giá trị trong mảng sắp xếp giảm dần
+// Bài 267: Viết hàm nhập mảng sao cho khi nhập xong thì giá trị trong mảng sắp xếp giảm dần
 
 void nhapMang(int **arr, int n){
     *arr = (int*) malloc(n * sizeof(int));

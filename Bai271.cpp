@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//	Bài 271: Xóa phần tử có chỉ số k trong mảng
 void nhapMang(int **p, int n){
     *p = (int*) malloc(n * sizeof(int));
     if(*p == NULL){
