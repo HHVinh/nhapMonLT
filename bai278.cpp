@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//	Bài 278: Xóa tất cả các phần tử trùng nhau trong mảng và chỉ giữ lại duy nhất 1 phần tử
 // Hàm nhập mảng
 void nhapMang(int **arr2, int *n){
     *arr2 = (int*) malloc(*n * sizeof(int));
