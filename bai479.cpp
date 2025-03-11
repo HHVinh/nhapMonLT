@@ -1,56 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string>
-#include <math.h>
-// Bài 476: Hãy khai báo kiểu dữ liệu biểu diễn khái niệm hỗn số trong toán học và định nghĩa hàm nhập, hàm xuất cho kiểu dữ liệu này
 
-struct honSo{
-    int nguyen;
-    float tu, mau;
+// Khai báo kiểu dữ liệu đơn thức P(x) = ax^n
+struct DonThuc {
+    float heSo;  // Hệ số a
+    int soMu;    // Số mũ n
 };
 
-typedef honSo hs;
+typedef struct DonThuc dt;
 
-void nhap(hs *a){
-    printf("Nhập tử số: "); scanf("%f", &a->tu);
-    do{
-        printf("Nhập mãu số: "); scanf("%f", &a->mau);
-        if(a->mau == 0){
-            printf("Nhập lại, mẫu phải khác 0.\n");
-        }
-    }
-    while(a->mau == 0);
+// Hàm nhập đơn thức
+void nhapDonThuc(dt *p) {
+    printf("Nhập hệ số a: ");
+    scanf("%f", &p->heSo);
+    
+    printf("Nhập số mũ n: ");
+    scanf("%d", &p->soMu);
 }
 
-void xuat(hs a) {
-    // Xử lý dấu
-    int laSoAm = (a.tu < 0) ^ (a.mau < 0);  // XOR để kiểm tra nếu chỉ một trong hai số âm
-
-    // Đảm bảo tử và mẫu luôn dương để dễ xử lý
-    a.tu = fabs(a.tu);
-    a.mau = fabs(a.mau);
-
-    // Tính phần nguyên
-    a.nguyen = (int)(a.tu / a.mau);
-    a.tu = fabs(a.tu - a.nguyen * a.mau);  // Cập nhật lại tử số
-
-    // Xuất kết quả
-    if (a.tu == 0) {
-        // Nếu không có phần phân số
-        printf("Hỗn số là: %s%d\n", laSoAm ? "-" : "", a.nguyen);
-    } else if (a.nguyen == 0) {
-        // Nếu không có phần nguyên
-        printf("Hỗn số là: %s%.1f/%.1f\n", laSoAm ? "-" : "", a.tu, a.mau);
+// Hàm xuất đơn thức
+void xuatDonThuc(dt p) {
+    if (p.soMu == 0) {
+        printf("P(x) = %.2f\n", p.heSo);  // Nếu số mũ là 0, chỉ in hệ số
+    } else if (p.soMu == 1) {
+        printf("P(x) = %.2fx\n", p.heSo);  // Nếu số mũ là 1, chỉ in ax
     } else {
-        // Nếu có cả phần nguyên và phần phân số
-        printf("Hỗn số là: %s%d(%.1f/%.1f)\n", laSoAm ? "-" : "", a.nguyen, a.tu, a.mau);
+        printf("P(x) = %.2fx^%d\n", p.heSo, p.soMu);  // In đầy đủ ax^n
     }
 }
 
+// Hàm main để chạy chương trình
 int main() {
-    hs a;
-    nhap(&a);
-    xuat(a);
+    dt p;
+    nhapDonThuc(&p);
+    xuatDonThuc(p);
     return 0;
 }

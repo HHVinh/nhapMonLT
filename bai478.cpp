@@ -1,34 +1,33 @@
+// Bài 478: Hãy khai báo kiểu dữ liệu biểu diễn khái niệm điểm trong không gian Oxyz và định nghĩa hàm nhập, hàm xuất cho kiểu dữ liệu này
 #include <stdio.h>
-#include <math.h>
-// Bài 475: Hãy khai báo kiểu dữ liệu biểu diễn khái niệm phân số trong toán học và định nghĩa hàm nhập, hàm xuất cho kiểu dữ liệu này
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 
-struct phanSo{
-    float tuSo;
-    float mauSo;
+#include <stdio.h>
+#include <stdlib.h>
+
+struct diemTrongKhongGian {
+    int toaDoX;
+    int toaDoY;
+    int toaDoZ;  // Thêm tọa độ Z
 };
 
-typedef struct phanSo ps;
+typedef struct diemTrongKhongGian td3D;
 
-void nhapPhanSo(ps *a){
-    printf("Nhập tử số: "); scanf("%f", &a->tuSo);
-    do{
-        printf("Nhập mẫu số: "); scanf("%f", &a->mauSo);
-        if(a->mauSo == 0){
-            printf("Mẫu số phải khác 0. Nhập lại!\n");
-        }
-    } while(a->mauSo == 0);   
+void nhapToaDo(td3D *a) {
+    printf("\nNhập tọa độ X: "); scanf("%d", &a->toaDoX);
+    printf("\nNhập tọa độ Y: "); scanf("%d", &a->toaDoY);
+    printf("\nNhập tọa độ Z: "); scanf("%d", &a->toaDoZ);  // Nhập thêm Z
 }
 
-void xuatPhanSo(ps a){  // Sửa thành truyền tham trị, vì a không cần dùng con trỏ
-    if( a.tuSo == 0) printf("Phân số là 0\n");
-    if (a.mauSo <0) printf("Phân số là: -%.1f / %.1f\n", a.tuSo, fabs(a.mauSo));  // Thêm \n
-    else printf("Phân số là: %.1f / %.1f\n", a.tuSo, a.mauSo);  // Thêm \n
+void inToaDo(td3D a) {
+    printf("\nĐiểm có tọa độ trong không gian Oxyz là: (%d, %d, %d)", a.toaDoX, a.toaDoY, a.toaDoZ);
 }
 
-int main(){
-    ps a;
-    nhapPhanSo(&a);
-    xuatPhanSo(a);  // Truyền tham trị (bỏ dấu &)
-
+int main() {
+    td3D a;
+    nhapToaDo(&a);
+    inToaDo(a);
     return 0;
 }
