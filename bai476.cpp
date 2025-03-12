@@ -15,7 +15,7 @@ typedef struct honSo hs;
 void nhap(hs *a){
     printf("Nhập tử số: "); scanf("%f", &a->tu);
     do{
-        printf("Nhập mãu số: "); scanf("%f", &a->mau);
+        printf("Nhập mẫu số: "); scanf("%f", &a->mau);
         if(a->mau == 0){
             printf("Nhập lại, mẫu phải khác 0.\n");
         }
