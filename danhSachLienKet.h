@@ -14,5 +14,9 @@ typedef struct LinkedList {
 Node *TaoNode(int x);
 void KhoiTaoDanhSachLienKet(LinkedList &l);
 void LietKePhanTuDanhSachLienKet(LinkedList &l);
+void ThemVaoDauDanhSach(LinkedList &l, Node *p);
+void ThemVaoCuoiDanhSach(LinkedList &l, Node *p);
+void ThemVaoGiuaDanhSach(LinkedList &l, Node *q, Node *p);
+
 
 #endif
