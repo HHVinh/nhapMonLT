@@ -62,6 +62,37 @@ void themCuoiDSLK(LinkedList *l, Node *p){
     }
 }
 
+int demDSLK(LinkedList *l){
+    int dem = 0;
+    if(kiemTraDanhSachRong(l)) return 0;
+    for(Node *p = l->pHead; p != NULL; p = p->pNext){
+        dem++;
+    }
+    return dem;
+}
+
+void themGiuaDSLK(LinkedList *l, Node *p){
+    int k;
+    do{
+        printf("\nNhập vị trí muốn thêm: ");scanf("%d",&k);
+        if(k < 1 || k > demDSLK(l)+1){
+            printf("\nNhập lại vị trí từ 1 đến %d: ", demDSLK(l)+1);
+        }
+    } while(k < 1 || k > demDSLK(l)+1);
+
+    Node *temp = l->pHead;
+    if(k == 1){
+        p->pNext = l->pHead;
+        l->pHead = p;
+    } else {
+        for(int i = 1; i < k - 1; i++){
+            temp = temp->pNext;
+        }
+        p->pNext = temp->pNext;
+        temp->pNext = p;
+    }
+}
+
 int main(){
 
     LinkedList list;
@@ -82,13 +113,55 @@ int main(){
 
     inDanhSachLienKet(&list);
 
-    printf("\n\nThêm vào danh sách\n");
-    Node *p5 = TaoNode();
-    themDauDSLK(&list, p5);
+    int luaChon;
+    
 
-    Node *p6 = TaoNode();
-    themCuoiDSLK(&list, p6);
-    inDanhSachLienKet(&list);
+    do{
+        printf("\n=== Chương trình ===");
+        printf("\n1: Thêm vào đầu");
+        printf("\n2: Thêm vào cuối");
+        printf("\n3: Thêm vào giữa");
+        printf("\n4: Xóa ở đầu");
+        printf("\n5: Xóa ở cuối");
+        printf("\n6: Xóa ở  giữa");
+        printf("\n7: Thoát chương trình");
+        printf("\nNhập lựa chọn: ");
+        scanf("%d",&luaChon);
+
+        switch(luaChon){
+            //C++ cấm nhảy qua khai báo biến chưa được khởi tạo trong switch; dùng {} để tránh lỗi
+            case 1: { 
+                Node *p5 = TaoNode();
+                themDauDSLK(&list, p5);
+                inDanhSachLienKet(&list);
+                break;
+            }
+
+            case 2: {
+                Node *p6 = TaoNode();
+                themCuoiDSLK(&list, p6);
+                inDanhSachLienKet(&list);
+                break;
+            }
+
+            case 3:{
+                Node *p7 = TaoNode();
+                themGiuaDSLK(&list, p7);
+                inDanhSachLienKet(&list);
+                break;
+            }
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+                printf("\nThoát chương trình!");
+            break;
+
+            default:
+                printf("\nLựa chọn không hợp lệ!");
+
+        }
+    } while(luaChon != 7);
 
     return 0;
 }
