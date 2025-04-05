@@ -141,6 +141,7 @@ void xoaCuoiDSLK(LinkedList *l) {
     }
 
     temp2->pNext = NULL;
+    l->pTail = temp2;
     free(temp);
 }
 
