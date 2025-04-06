@@ -171,6 +171,40 @@ void xoaGiuaDSLK(LinkedList *l){
     }
 }
 
+void timPhanTuTheoGiaTri(LinkedList *l){
+    if(kiemTraDanhSachRong(l)){
+        return;
+    }
+    int k; printf("\nNhập giá trị cần tìm: "); scanf("%d",&k);
+    Node *temp = l->pHead;
+    int dem = 1;
+    int daCoGiaTri = 0;
+    while(temp != NULL){
+        if(temp->Data == k){
+            printf("\nGiá trị %d ở vị trí %d của DSLK!", k,dem);
+            daCoGiaTri = 1;
+            break;
+        } else{
+            temp = temp->pNext;
+            dem++;
+        }
+    }
+    if(daCoGiaTri == 0){
+        printf("\nKhông tồn tại %d trong DSLK!", k);
+    }
+}
+
+void timPhanTuTheoViTri(LinkedList *l){
+
+}
+
+void sapXepDSLK(LinkedList *l){
+
+}
+
+void daoNguocDSLK(LinkedList *l){
+
+}
 
 int main(){
 
@@ -203,7 +237,10 @@ int main(){
         printf("\n4: Xóa ở đầu");
         printf("\n5: Xóa ở cuối");
         printf("\n6: Xóa ở giữa");
-        printf("\n7: Thoát chương trình");
+        printf("\n7: Tìm PT theo giá trị");
+        printf("\n8: Tìm PT theo vị trí");
+        printf("\n9: Sắp xếp danh sách");
+        printf("\n0: Thoát chương trình");
         printf("\nNhập lựa chọn: ");
         scanf("%d",&luaChon);
 
@@ -242,6 +279,14 @@ int main(){
                 inDanhSachLienKet(&list);
                 break;
             case 7:
+                inDanhSachLienKet(&list);
+                timPhanTuTheoGiaTri(&list);
+                break;
+            case 8:
+
+            case 9:
+
+            case 0:
                 printf("\nThoát chương trình!");
             break;
 
@@ -249,7 +294,7 @@ int main(){
                 printf("\nLựa chọn không hợp lệ!");
 
         }
-    } while(luaChon != 7);
+    } while(luaChon != 0);
 
     return 0;
 }
