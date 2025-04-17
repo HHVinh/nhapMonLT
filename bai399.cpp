@@ -1,4 +1,4 @@
-// Bài 398: Dịch phải xoay vòng theo chiều kim đồng hồ các giá trị nằm trên biên ma trận
+// Bài 399: Dịch trái xoay vòng theo chiều kim đồng hồ các giá trị nằm trên biên ma trận
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,21 +30,21 @@ void daoNguoc(int *arr, int left, int right){
 }
 
 
-int dichPhaiBienMaTran(int *arr, int n, int m) {
+int dichTraiBienMaTran(int *arr, int n, int m) {
     int tongSoPhanTuBien = (n == 1 || m == 1) ? n * m : (n + m) * 2 - 4;
     int k;
-    printf("Nhập số lần xoay phải: ");
+    printf("Nhập số lần dịch trái: ");
     scanf("%d", &k);
 
     if(k < 1) {
-        printf("Số lượng phần tử dịch phải không thể âm.\n");
+        printf("Số lượng phần tử dịch trái không thể âm.\n");
         return 0;
     }
 
-    // Xử lý ma trận 1D
+    // Xử lý ma trận 1D, k = 2.  A B C D E -> B A C D E -> B A E D C -> C D E A B
     if(n == 1 || m == 1) {
-        daoNguoc(arr, 0, tongSoPhanTuBien - k - 1);
-        daoNguoc(arr, tongSoPhanTuBien - k, tongSoPhanTuBien - 1);
+        daoNguoc(arr, 0, k - 1);
+        daoNguoc(arr, k, tongSoPhanTuBien - 1);
         daoNguoc(arr, 0, tongSoPhanTuBien - 1);
         return 1;
     }
@@ -77,9 +77,9 @@ int dichPhaiBienMaTran(int *arr, int n, int m) {
         temp[j++] = arr[i * m];
     }
 
-    // Dịch phải k lần, k = 2. A B C D E -> A B C E D -> C B A E D -? D E A B C
-    daoNguoc(temp, tongSoPhanTuBien - k, tongSoPhanTuBien - 1);
-    daoNguoc(temp, 0, tongSoPhanTuBien - k - 1);
+    // dịch trái k lần
+    daoNguoc(temp, 0, k - 1);
+    daoNguoc(temp, k, tongSoPhanTuBien - 1);
     daoNguoc(temp, 0, tongSoPhanTuBien - 1);
 
     // Sao chép lại vào arr
@@ -123,8 +123,8 @@ int main(){
     printf("\nMa trận vừa nhập là: \n");
     xuat(arr, n, m);
 
-    if(dichPhaiBienMaTran(arr, n, m)){
-        printf("\nMa trận sau khi dịch phải biên là: \n");
+    if(dichTraiBienMaTran(arr, n, m)){
+        printf("\nMa trận sau khi dịch trái biên là: \n");
         xuat(arr, n, m);
     }
 
