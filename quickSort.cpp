@@ -96,7 +96,7 @@ int main(){
     xuatMang(arr, n);
 
     quickSort2(arr1,0,n-1);
-    printf("\nMảng Pivot phải vừa sắp xếp là: \n");
+    printf("\nMảng Pivot Phải vừa sắp xếp là: \n");
     xuatMang(arr1, n);
 
     quickSort3(arr2,0,n-1);
