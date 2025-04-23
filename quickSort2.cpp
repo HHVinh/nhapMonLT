@@ -36,23 +36,46 @@ void quickSort1(int *arr, int l, int r){
     }
 }
 
+int phanHoachPhai(int *arr, int l, int r){
+    int pivot = arr[r];
+    int i = l - 1;
+    for(int j = l; j < r; j++){
+        if(arr[j] <= pivot){
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    i++;
+    swap(&arr[i], &arr[r]);
+
+    return i;
+}
+
+void quickSort2(int *arr, int l, int r){
+    if(l < r){
+        int mid = phanHoachPhai(arr,l,r);
+        quickSort2(arr, l, mid - 1);
+        quickSort2(arr, mid + 1, r);
+    }
+}
+
 int main(){
     int n = 10;
-    int arr[10] = {23, 5, 17, 1, 42, 8, 31, 3, 19, 12};
     int arr1[10] = {23, 5, 17, 1, 42, 8, 31, 3, 19, 12};
     int arr2[10] = {23, 5, 17, 1, 42, 8, 31, 3, 19, 12};
+    int arr3[10] = {23, 5, 17, 1, 42, 8, 31, 3, 19, 12};
 
-    quickSort1(arr,0,n-1);
+    quickSort1(arr1,0,n-1);
     printf("\nMảng Pivot Trái vừa sắp xếp là: \n");
-    xuatMang(arr, n);
+    xuatMang(arr1, n);
 
-    // quickSort2(arr1,0,n-1);
-    // printf("\nMảng Pivot Phải vừa sắp xếp là: \n");
-    // xuatMang(arr1, n);
+    quickSort2(arr2,0,n-1);
+    printf("\nMảng Pivot Phải vừa sắp xếp là: \n");
+    xuatMang(arr2, n);
 
-    // quickSort3(arr2,0,n-1);
+    // quickSort3(arr3,0,n-1);
     // printf("\nMảng Pivot Giữa vừa sắp xếp là: \n");
-    // xuatMang(arr2, n);
+    // xuatMang(arr3, n);
 
     return 0;
 }
