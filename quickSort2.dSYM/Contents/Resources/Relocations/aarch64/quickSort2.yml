@@ -1,0 +1,15 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/vinh/Documents/nhapMonLT/quickSort2'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: __Z8xuatMangPii, symObjAddr: 0x0, symBinAddr: 0x10000382C, symSize: 0x78 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: __Z8xuatMangPii, symObjAddr: 0x0, symBinAddr: 0x10000382C, symSize: 0x78 }
+  - { offsetInCU: 0x93, offset: 0x93, size: 0x8, addend: 0x0, symName: __Z4swapPiS_, symObjAddr: 0x78, symBinAddr: 0x1000038A4, symSize: 0x3C }
+  - { offsetInCU: 0xD7, offset: 0xD7, size: 0x8, addend: 0x0, symName: __Z13phanHoachTraiPiii, symObjAddr: 0xB4, symBinAddr: 0x1000038E0, symSize: 0xE4 }
+  - { offsetInCU: 0x157, offset: 0x157, size: 0x8, addend: 0x0, symName: __Z10quickSort1Piii, symObjAddr: 0x198, symBinAddr: 0x1000039C4, symSize: 0x7C }
+  - { offsetInCU: 0x1B7, offset: 0x1B7, size: 0x8, addend: 0x0, symName: __Z13phanHoachPhaiPiii, symObjAddr: 0x214, symBinAddr: 0x100003A40, symSize: 0xF0 }
+  - { offsetInCU: 0x237, offset: 0x237, size: 0x8, addend: 0x0, symName: __Z10quickSort2Piii, symObjAddr: 0x304, symBinAddr: 0x100003B30, symSize: 0x7C }
+  - { offsetInCU: 0x297, offset: 0x297, size: 0x8, addend: 0x0, symName: __Z13phanHoachGiuaPiii, symObjAddr: 0x380, symBinAddr: 0x100003BAC, symSize: 0x118 }
+  - { offsetInCU: 0x309, offset: 0x309, size: 0x8, addend: 0x0, symName: __Z10quickSort3Piii, symObjAddr: 0x498, symBinAddr: 0x100003CC4, symSize: 0x7C }
+  - { offsetInCU: 0x369, offset: 0x369, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x514, symBinAddr: 0x100003D40, symSize: 0x134 }
+...
