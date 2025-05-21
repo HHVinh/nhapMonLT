@@ -1,23 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void nhapMang(int *arr, int n, int m){
-    for(int i = 0; i < n*m; i++){
-        printf("Nhập phần tử A[%d][%d]: ", i/m, i%m);
-        scanf("%d", &arr[i]);
-    }
-}
-
-void xuatMang(int *arr, int n, int m){
-    for (int i = 0; i < n*m; i++){
-        printf("%5d", arr[i]);
-        if((i+1) % m == 0){
-            printf("\n");
-        }
-    }
-}
-
-void nhapMang2(int **arr, int n, int m){
+void nhapMang(int **arr, int n, int m){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j ++){
             printf("Nhập phần tử A[%d][%d]: ", i, j);
@@ -26,7 +10,7 @@ void nhapMang2(int **arr, int n, int m){
     }
 }
 
-void xuatMang2(int **arr, int n, int m){
+void xuatMang(int **arr, int n, int m){
     for(int i = 0; i < n ; i++){
         for(int j = 0; j < m; j++){
             printf("%5d", arr[i][j]);
@@ -59,9 +43,9 @@ int main(){
         }
     }
 
-    nhapMang2(arr, n, m);
+    nhapMang(arr, n, m);
     printf("\nMa trận vừa nhập là: \n");
-    xuatMang2(arr, n, m);
+    xuatMang(arr, n, m);
     
     for(int i = 0; i < n; i++){
         free(arr[i]);
