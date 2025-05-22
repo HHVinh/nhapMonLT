@@ -1,3 +1,4 @@
+// Bài 323: Tính tích các giá trị dương trên 1 cột trong ma trận các số thực
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,16 +20,22 @@ void xuatMang(float** arr, int n, int m){
     }
 }
 
-float giaTriLonNhat(float** arr, int n, int m){
-    float maxValue = arr[0][0];
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            if(arr[i][j] > maxValue){
-                maxValue = arr[i][j];
+void tongSoDuongTungCot(float** arr, int n, int m){
+    for(int j = 0; j < m; j++){
+        float tong = 1;
+        int coSoDuong = 0;
+        for(int i = 0; i < n; i++){
+            if(arr[i][j] > 0){
+                tong *= arr[i][j];
+                coSoDuong = 1;
             }
         }
+        if(coSoDuong){
+            printf("Tổng cột %d là: %.2f\n", j + 1, tong);
+        } else{
+            printf("Tổng cột %d là: 0\n", j + 1);
+        }
     }
-    return maxValue;
 }
 
 int main(){
@@ -60,8 +67,7 @@ int main(){
     printf("Ma trận vừa nhập là: \n");
     xuatMang(arr, n, m);
 
-    float ketQua = giaTriLonNhat(arr, n, m);
-    printf("\n Giá trị lớn nhất của ma trận trên là: %.2f", ketQua);
+    tongSoDuongTungCot(arr, n, m);
 
     for(int i = 0; i < n; i++){
         free(arr[i]);

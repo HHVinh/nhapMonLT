@@ -1,3 +1,4 @@
+// Bài 322: Tính tổng các giá trị trên 1 dòng trong ma trận các số thực
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,16 +20,14 @@ void xuatMang(float** arr, int n, int m){
     }
 }
 
-float giaTriLonNhat(float** arr, int n, int m){
-    float maxValue = arr[0][0];
+void tongTungDong(float** arr, int n, int m){
     for(int i = 0; i < n; i++){
+        float tong = 0;
         for(int j = 0; j < m; j++){
-            if(arr[i][j] > maxValue){
-                maxValue = arr[i][j];
-            }
+            tong += arr[i][j];
         }
+        printf("Tổng dòng %d là: %.2f\n", i + 1, tong);
     }
-    return maxValue;
 }
 
 int main(){
@@ -60,8 +59,7 @@ int main(){
     printf("Ma trận vừa nhập là: \n");
     xuatMang(arr, n, m);
 
-    float ketQua = giaTriLonNhat(arr, n, m);
-    printf("\n Giá trị lớn nhất của ma trận trên là: %.2f", ketQua);
+    tongTungDong(arr, n, m);
 
     for(int i = 0; i < n; i++){
         free(arr[i]);

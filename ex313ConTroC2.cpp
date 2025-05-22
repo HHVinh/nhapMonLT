@@ -32,7 +32,7 @@ int main(){
 
     for(int i = 0; i < n; i++){
         arr[i] = (float*) malloc(m * sizeof(float));
-        if(arr == NULL){
+        if(arr[i] == NULL){
         printf("Lỗi");
         for(int j = 0; j < n; j++){
             free(arr[j]);
