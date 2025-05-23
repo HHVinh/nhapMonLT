@@ -1,4 +1,4 @@
-// Bài 323: Tính tích các giá trị dương trên 1 cột trong ma trận các số thực
+// Bài 336: Đếm tần suất xuất hiện của 1 giá trị x trong ma trận các số thực
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,47 +14,46 @@ void nhapMang(float** arr, int n, int m){
 void xuatMang(float** arr, int n, int m){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
-            printf("%8.2f", arr[i][j]);
+            printf("%5.2f", arr[i][j]);
         }
         printf("\n");
     }
 }
 
-void tichSoDuongTungCot(float** arr, int n, int m){
-    for(int j = 0; j < m; j++){
-        float tich = 1;
-        int coSoDuong = 0;
-        for(int i = 0; i < n; i++){
-            if(arr[i][j] > 0){
-                tich *= arr[i][j];
-                coSoDuong = 1;
+int demSoLanXuatHienGiaTriX(float** arr, int n, int m){
+    float x;
+    printf("\nNhập giá trị cần đếm: ");
+    scanf("%f", &x);
+
+    int dem = 0;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(arr[i][j] == x){
+                dem++;
             }
         }
-        if(coSoDuong){
-            printf("Tích cột %d là: %.2f\n", j + 1, tich);
-        } else{
-            printf("Tích cột %d là: 0\n", j + 1);
-        }
     }
+
+    printf("Số lần %.2f xuất hiện trong ma trận là: %d\n", x, dem);
+    return dem;
 }
 
-int main(){
 
+int main(){
     int n, m;
-    printf("Nhập số lượng dòng, cột: ");
-    scanf("%d%d", &n,&m);
-    
+    printf("Nhập số lượng dòng và cột: ");
+    scanf("%d%d", &n, &m);
 
     float** arr = (float**) malloc(n * sizeof(float*));
     if(arr == NULL){
-        printf("Lỗi!");
+        printf("Lỗi");
         return 1;
     }
 
     for(int i = 0; i < n; i++){
         arr[i] = (float*) malloc(m * sizeof(float));
         if(arr[i] == NULL){
-        printf("Lỗi!");
+        printf("Lỗi");
         for(int j = 0; j < n; j++){
             free(arr[j]);
         }
@@ -64,15 +63,14 @@ int main(){
     }
 
     nhapMang(arr, n, m);
-    printf("Ma trận vừa nhập là: \n");
+    printf("\n");
     xuatMang(arr, n, m);
 
-    tichSoDuongTungCot(arr, n, m);
+    int ketQua = demSoLanXuatHienGiaTriX(arr, n, m);
 
     for(int i = 0; i < n; i++){
         free(arr[i]);
     }
     free(arr);
-
     return 0;
 }
