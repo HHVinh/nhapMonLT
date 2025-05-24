@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Nhập mảng
 void nhapMang(int *arr, int n){
     for(int i = 0; i < n; i++){
         printf("Nhập phần tử A[%d]: ", i);
@@ -10,7 +9,6 @@ void nhapMang(int *arr, int n){
     }
 }
 
-// Xuất mảng
 void xuatMang(int *arr, int n){
     for(int i = 0; i < n ; i++){
         printf("%5d", arr[i]);
