@@ -54,25 +54,6 @@ int timViTriX(int *arr, int n, int left, int right, int x) {
     }
 }
 
-void nhapMang(int** arr, int n){
-    *arr = (int*) malloc(n * sizeof(int));
-    if(*arr == NULL){
-        printf("Lỗi cấp phát bộ nhớ!"); exit(1);
-    }
-
-    for(int i = 0; i < n; i++){
-        printf("Nhập phần tử A[%d]: ", i);
-        scanf("%d", &((*arr)[i]));
-    }
-}
-
-void xuatMang(int* arr, int n){
-    for(int i = 0; i < n; i++){
-        printf("%5d", arr[i]);
-    }
-    printf("\n");
-}
-
 // Tìm số hoán vị từ 1 đến n
 void hoanDoi(int* a, int* b) {
     int temp = *a;
@@ -114,6 +95,26 @@ void chuyenDia(int n, char cotNguon, char cotTrungGian, char cotDich) {
     // Bước 3: Chuyển n-1 đĩa từ trung gian sang đích
     chuyenDia(n - 1, cotTrungGian, cotNguon, cotDich);
 }
+
+void nhapMang(int** arr, int n){
+    *arr = (int*) malloc(n * sizeof(int));
+    if(*arr == NULL){
+        printf("Lỗi cấp phát bộ nhớ!"); exit(1);
+    }
+
+    for(int i = 0; i < n; i++){
+        printf("Nhập phần tử A[%d]: ", i);
+        scanf("%d", &((*arr)[i]));
+    }
+}
+
+void xuatMang(int* arr, int n){
+    for(int i = 0; i < n; i++){
+        printf("%5d", arr[i]);
+    }
+    printf("\n");
+}
+
 
 int main() {
     int n;
